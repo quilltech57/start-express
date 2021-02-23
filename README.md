@@ -1,4 +1,6 @@
 # Start Express Api
+
+[![Build Status](https://travis-ci.com/quilltech57/start-express.svg?branch=main)](https://coveralls.io/github/quilltech57/start-express?branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/quilltech57/start-express/badge.svg?branch=main)](https://coveralls.io/github/quilltech57/start-express?branch=main)
 
 ## Installed Dependencies

@@ -8,7 +8,6 @@ const { origin } = require("./config");
 const api = require("./api");
 
 const app = express();
-
 app.use(morgan("combined"));
 app.use(cookieParser());
 app.use(helmet());
