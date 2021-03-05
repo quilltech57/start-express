@@ -1,4 +1,4 @@
-const { transports, CreateLogger, format } = require('winston');
+const { transports, createLogger, format } = require('winston');
 
 const { combine, printf } = format;
 
@@ -34,7 +34,8 @@ const options = {
     colorize: true,
   },
 };
-const logger = new CreateLogger({
+// eslint-disable-next-line new-cap
+const logger = new createLogger({
   format: combine(logMessage),
   transports: [
     // Write all logs with level `info` and below to `combined.log`

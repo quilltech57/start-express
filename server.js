@@ -5,6 +5,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { origin } = require('./config');
 
+require('./config/mongodbConfig')();
+
 const api = require('./api');
 
 const app = express();

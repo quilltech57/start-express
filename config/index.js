@@ -8,6 +8,7 @@ module.exports = {
   origin: process.env.ORIGIN,
   database: {
     db_uri: process.env.DB_URI,
+    db_uri_test: process.env.DB_URI_TEST,
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
