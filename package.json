@@ -13,7 +13,8 @@
     "start": "nodemon ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "mocha --timeout 100000 \"./test/**/!(*.skip).js\" --exit",
-    "test:dev": "mocha --timeout 100000 \"./test/**/!(*.skip).js\" -w --recursive"
+    "test:dev": "mocha --timeout 100000 \"./test/**/!(*.skip).js\" -w --recursive",
+    "lint": "eslint --fix ./"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
@@ -32,6 +33,9 @@
   "devDependencies": {
     "chai": "^4.3.0",
     "chai-http": "^4.3.0",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "mocha": "^8.3.0",
     "nodemon": "^2.0.7"
   }
