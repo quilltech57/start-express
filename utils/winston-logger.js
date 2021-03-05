@@ -1,13 +1,17 @@
-const { transports, createLogger, format } = require('winston');
+/* eslint-disable implicit-arrow-linebreak */
+const { transports, createLogger, format } = require('winston')
 
-const { combine, printf } = format;
+const { combine, printf } = format
 
-const logTime = new Date().toLocaleString();
+const logTime = new Date().toLocaleString()
 
-const logMessage = printf(({ level, message }) => `[${level} - level]: ${message} | [LogTime]:${logTime}`);
+const logMessage = printf(
+  ({ level, message }) =>
+    `[${level} - level]: ${message} | [LogTime]:${logTime}`
+)
 
-const date = new Date();
-const newdate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
+const date = new Date()
+const newdate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
 const options = {
   info: {
     level: 'info',
@@ -33,8 +37,8 @@ const options = {
     handleExceptions: true,
     colorize: true,
   },
-};
-// eslint-disable-next-line new-cap
+}
+
 const logger = new createLogger({
   format: combine(logMessage),
   transports: [
@@ -45,12 +49,12 @@ const logger = new createLogger({
     new transports.Console(options.console),
   ],
   exitOnError: false,
-});
+})
 
 logger.stream = {
   write: (message, _encoding) => {
-    logger.info(message);
+    logger.info(message)
   },
-};
+}
 
-module.exports = logger;
+module.exports = logger

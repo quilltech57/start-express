@@ -1,4 +1,5 @@
 const chai = require('chai');
+const {expect} =require('chai');
 const chaiHttp = require('chai-http');
 
 const server = require('../server');
@@ -13,7 +14,8 @@ describe('GET Users', () => {
       res = await chai.request(server).get('/api/v1/users');
     });
     it('Should get root api', () => {
-      res.should.have.status(200);
+      // res.should.have.status(200);
+      expect(res.statusCode).to.equal(200)
     });
     it('Should have property `status` of success', () => {
       res.body.should.have.property('status').eq('success');
