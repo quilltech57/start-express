@@ -1,12 +1,12 @@
-const jwt = require("jsonwebtoken");
-const moment = require("moment");
-const ms = require("ms");
-const randToken = require("rand-token");
+const jwt = require('jsonwebtoken');
+const moment = require('moment');
+const ms = require('ms');
+const randToken = require('rand-token');
 
-const { auth } = require("../config/env");
+const { auth } = require('../config/env');
 
 // Verify Node env
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV !== 'production';
 
 let refreshTokens = {};
 
@@ -41,7 +41,7 @@ const generateToken = (payload) => {
     expiresIn: auth.access_token_life,
   });
 
-  expireAt = moment().add(ms(auth.access_token_life), "ms").valueOf();
+  let expireAt = moment().add(ms(auth.access_token_life), 'ms').valueOf();
   return {
     token,
     expireAt,
@@ -58,7 +58,7 @@ const generateRefreshToken = (userId) => {
 };
 
 // Verify Access Token and Refresh Token
-const verifyToken = (token, xsrfToken = "", cb) => {
+const verifyToken = (token, xsrfToken = '', cb) => {
   const privateKey = auth.jwt_secret + xsrfToken;
   jwt.verify(token, privateKey, cb);
 };
@@ -69,8 +69,8 @@ const clearTokens = (req, res) => {
   const { refreshToken } = signedCookies;
   delete refreshTokens[refreshToken];
 
-  res.clearCookie("XSRF-TOKEN");
-  res.clearCookie("refreshToken", COOKIE_OPTIONS);
+  res.clearCookie('XSRF-TOKEN');
+  res.clearCookie('refreshToken', COOKIE_OPTIONS);
 };
 
 module.exports = {
